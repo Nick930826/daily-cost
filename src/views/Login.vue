@@ -115,6 +115,7 @@ export default {
           password: state.password
         })
         Toast.success('注册成功')
+        state.type = 'login'
         state.loading = false
       }
     }
