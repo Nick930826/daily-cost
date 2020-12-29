@@ -91,31 +91,36 @@ export default {
       type: 'login', // 登录注册模式切换参数
       verify: '', // 验证码输入框输入的内容
       imgCode: '', // 生成的验证图片内的文字
+      loading: false
     })
 
     // 提交登录 or 注册表单
     const onSubmit = async (values) => {
-      if (state.type == 'login') {
-        const { data } = await axios.post('/user/login', {
-          username: state.username,
-          password: state.password
-        })
-        localStorage.setItem('token', data.token)
-        window.location.href = '/'
-      } else {
-        state.imgCode = verifyRef.value.imgCode || ''
-        if (verifyRef.value.imgCode.toLowerCase() != state.verify.toLowerCase()) {
-          console.log('verifyRef.value.imgCode', verifyRef.value.imgCode)
-          Toast.fail('验证码错误')
-          return
+      try {
+        if (state.type == 'login') {
+          const { data } = await axios.post('/user/login', {
+            username: state.username,
+            password: state.password
+          })
+          localStorage.setItem('token', data.token)
+          window.location.href = '/'
+        } else {
+          state.imgCode = verifyRef.value.imgCode || ''
+          if (verifyRef.value.imgCode.toLowerCase() != state.verify.toLowerCase()) {
+            console.log('verifyRef.value.imgCode', verifyRef.value.imgCode)
+            Toast.fail('验证码错误')
+            return
+          }
+          state.loading = true
+          const { data } = await axios.post('/user/register', {
+            username: state.username,
+            password: state.password
+          })
+          Toast.success('注册成功')
+          state.type = 'login'
+          state.loading = false
         }
-        state.loading = true
-        const { data } = await axios.post('/user/register', {
-          username: state.username,
-          password: state.password
-        })
-        Toast.success('注册成功')
-        state.type = 'login'
+      } catch (error) {
         state.loading = false
       }
     }

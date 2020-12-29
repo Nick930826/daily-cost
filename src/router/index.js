@@ -18,31 +18,31 @@ const router = createRouter({
     },
     {
       path: '/home',
-      component: defineAsyncComponent(() => import('../views/Home.vue'))
+      component: () => import(/* webpackChunkName: 'home' */ '../views/Home.vue')
     },
     {
       path: '/data',
-      component: defineAsyncComponent(() => import('../views/Data.vue'))
+      component: () => import(/* webpackChunkName: 'data' */ '../views/Data.vue')
     },
     {
       path: '/user',
-      component: defineAsyncComponent(() => import('../views/User.vue'))
+      component: () => import(/* webpackChunkName: 'user' */ '../views/User.vue')
     },
     {
       path: '/login',
-      component: defineAsyncComponent(() => import('../views/Login.vue'))
+      component: () => import(/* webpackChunkName: 'login' */ '../views/Login.vue')
     },
     {
       path: '/detail',
-      component: defineAsyncComponent(() => import('../views/Detail.vue'))
+      component: () => import(/* webpackChunkName: 'detail' */ '../views/Detail.vue')
     },
     {
       path: '/about',
-      component: defineAsyncComponent(() => import('../views/About.vue'))
+      component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
     },
     {
       path: '/account',
-      component: defineAsyncComponent(() => import('../views/Account.vue'))
+      component: () => import(/* webpackChunkName: 'account' */ '../views/Account.vue')
     }
   ]
 })
