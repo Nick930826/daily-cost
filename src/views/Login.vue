@@ -61,7 +61,7 @@
         </van-field>
       </div>
       <div style="margin: 16px 0;">
-        <van-button round block type="primary" native-type="submit">
+        <van-button round block :loading="loading" type="primary" native-type="submit">
           注册
         </van-button>
         <p @click="chanegType('login')" class="change-btn">登录已有账号</p>
@@ -109,10 +109,13 @@ export default {
           Toast.fail('验证码错误')
           return
         }
-        await axios.post('/user/register', {
+        state.loading = true
+        const { data } = await axios.post('/user/register', {
           username: state.username,
           password: state.password
         })
+        Toast.success('注册成功')
+        state.loading = false
       }
     }
 
