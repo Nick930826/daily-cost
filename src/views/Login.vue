@@ -121,6 +121,7 @@ export default {
           state.loading = false
         }
       } catch (error) {
+        console.log(111)
         state.loading = false
       }
     }
