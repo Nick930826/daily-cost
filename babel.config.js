@@ -10,7 +10,7 @@ module.exports = {
         libraryDirectory: 'es',
         style: name => `${name}/style/less`
       },
-      'vant'
+      'vant',
     ]
   ]
 }
