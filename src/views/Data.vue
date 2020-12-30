@@ -55,7 +55,7 @@
 import { ref, onMounted, reactive, toRefs } from 'vue'
 // 不要使用 import echarts from 'echarts' 因为 5.0 版本的 echarts 的接口已经变成了下面这样
 // export { EChartsFullOption as EChartsOption, connect, disConnect, dispose, getInstanceByDom, getInstanceById, getMap, init, registerLocale, registerMap, registerTheme };
-// import * as echarts from 'echarts'
+// import { init } from 'echarts'
 import dayjs from 'dayjs'
 import PopMonth from '../components/PopMonth.vue'
 import axios from '../utils/axios'
@@ -110,38 +110,40 @@ export default {
 
     // 绘制饼图方法
     const setPieChart = () => {
-      const proportionChart = echarts.init(document.getElementById('proportion'));
-      const _data = state.pieType == 'expense' ? state.expense_data : state.income_data
-      proportionChart.setOption({
-          tooltip: {
-            trigger: 'item',
-            formatter: '{a} <br/>{b} : {c} ({d}%)'
-          },
-          // 图例
-          legend: {
-              data: _data.map(item => item.type_name)
-          },
-          series: [
-            {
-              name: '支出',
-              type: 'pie',
-              radius: '55%',
-              data: _data.map(item => {
-                return {
-                  value: item.number,
-                  name: item.type_name
-                }
-              }),
-              emphasis: {
-                itemStyle: {
-                  shadowBlur: 10,
-                  shadowOffsetX: 0,
-                  shadowColor: 'rgba(0, 0, 0, 0.5)'
+      if (window.echarts) {
+        const proportionChart = echarts.init(document.getElementById('proportion'));
+        const _data = state.pieType == 'expense' ? state.expense_data : state.income_data
+        proportionChart.setOption({
+            tooltip: {
+              trigger: 'item',
+              formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            // 图例
+            legend: {
+                data: _data.map(item => item.type_name)
+            },
+            series: [
+              {
+                name: '支出',
+                type: 'pie',
+                radius: '55%',
+                data: _data.map(item => {
+                  return {
+                    value: item.number,
+                    name: item.type_name
+                  }
+                }),
+                emphasis: {
+                  itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  }
                 }
               }
-            }
-          ]
-      })
+            ]
+        })
+      }
     }
     
     // 月份弹窗开关
