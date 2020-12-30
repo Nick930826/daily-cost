@@ -92,7 +92,7 @@ export default {
       // 过滤支出和收入
       state.expense_data = data.total_data.filter(item => item.pay_type == 1).sort((a, b) => b.number - a.number) // 过滤出账单类型为支出的项
       state.income_data = data.total_data.filter(item => item.pay_type == 2).sort((a, b) => b.number - a.number) // 过滤出账单类型为收入的项
-
+      console.log(11)
       setPieChart()
     }
 
@@ -110,7 +110,9 @@ export default {
 
     // 绘制饼图方法
     const setPieChart = () => {
+      console.log(22)
       if (window.echarts) {
+        console.log(33)
         const proportionChart = echarts.init(document.getElementById('proportion'));
         const _data = state.pieType == 'expense' ? state.expense_data : state.income_data
         proportionChart.setOption({
