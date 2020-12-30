@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { ref, onMounted, reactive, toRefs } from 'vue'
+import { ref, onMounted, reactive, toRefs, onUnmounted } from 'vue'
 // 不要使用 import echarts from 'echarts' 因为 5.0 版本的 echarts 的接口已经变成了下面这样
 // export { EChartsFullOption as EChartsOption, connect, disConnect, dispose, getInstanceByDom, getInstanceById, getMap, init, registerLocale, registerMap, registerTheme };
 // import { init } from 'echarts'
@@ -60,6 +60,8 @@ import dayjs from 'dayjs'
 import PopMonth from '../components/PopMonth.vue'
 import axios from '../utils/axios'
 import { typeMap } from '../utils'
+
+let proportionChart = null
 export default {
   name: 'Data',
   components: {
@@ -80,6 +82,11 @@ export default {
 
     onMounted(() => {
       getData()
+    })
+
+    onUnmounted(() => {
+      // 每次组件卸载的时候，需要释放图表实例。clear 只是将其清空不会释放。
+      proportionChart.dispose()
     })
 
     const getData = async () => {
@@ -113,7 +120,7 @@ export default {
       console.log(22)
       if (window.echarts) {
         console.log(33)
-        const proportionChart = echarts.init(document.getElementById('proportion'));
+        proportionChart = echarts.init(document.getElementById('proportion'));
         const _data = state.pieType == 'expense' ? state.expense_data : state.income_data
         console.log('proportionChart', proportionChart)
         console.log('_data', _data)
