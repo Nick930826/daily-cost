@@ -55,7 +55,7 @@
 import { ref, onMounted, reactive, toRefs } from 'vue'
 // 不要使用 import echarts from 'echarts' 因为 5.0 版本的 echarts 的接口已经变成了下面这样
 // export { EChartsFullOption as EChartsOption, connect, disConnect, dispose, getInstanceByDom, getInstanceById, getMap, init, registerLocale, registerMap, registerTheme };
-import * as echarts from 'echarts'
+// import * as echarts from 'echarts'
 import dayjs from 'dayjs'
 import PopMonth from '../components/PopMonth.vue'
 import axios from '../utils/axios'
