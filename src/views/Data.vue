@@ -115,6 +115,8 @@ export default {
         console.log(33)
         const proportionChart = echarts.init(document.getElementById('proportion'));
         const _data = state.pieType == 'expense' ? state.expense_data : state.income_data
+        console.log('proportionChart', proportionChart)
+        console.log('_data', _data)
         proportionChart.setOption({
             tooltip: {
               trigger: 'item',
