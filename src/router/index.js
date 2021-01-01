@@ -1,12 +1,12 @@
 import { defineAsyncComponent } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Data from '../views/Data.vue'
-import User from '../views/User.vue'
-import Login from '../views/Login.vue'
-import Detail from '../views/Detail.vue'
-import About from '../views/About.vue'
-import Account from '../views/Account.vue'
+// import Data from '../views/Data.vue'
+// import User from '../views/User.vue'
+// import Login from '../views/Login.vue'
+// import Detail from '../views/Detail.vue'
+// import About from '../views/About.vue'
+// import Account from '../views/Account.vue'
 
 // createRouter 创建路由实例
 const router = createRouter({
@@ -18,31 +18,38 @@ const router = createRouter({
     },
     {
       path: '/home',
-      component: () => import(/* webpackChunkName: 'home' */ '../views/Home.vue')
+      name: 'Home',
+      component: Home
     },
     {
       path: '/data',
-      component: () => import(/* webpackChunkName: 'data' */ '../views/Data.vue')
+      name: 'Data',
+      component: () => import(/* webpackChunkName: "data" */ '../views/Data.vue')
     },
     {
       path: '/user',
-      component: () => import(/* webpackChunkName: 'user' */ '../views/User.vue')
+      name: 'User',
+      component: () => import(/* webpackChunkName: "user" */ '../views/User.vue')
     },
     {
       path: '/login',
-      component: () => import(/* webpackChunkName: 'login' */ '../views/Login.vue')
+      name: 'Login',
+      component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
     },
     {
       path: '/detail',
-      component: () => import(/* webpackChunkName: 'detail' */ '../views/Detail.vue')
+      name: 'Detail',
+      component: () => import(/* webpackChunkName: "detail" */ '../views/Detail.vue')
     },
     {
       path: '/about',
-      component: () => import(/* webpackChunkName: 'about' */ '../views/About.vue')
+      name: 'About',
+      component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
       path: '/account',
-      component: () => import(/* webpackChunkName: 'account' */ '../views/Account.vue')
+      name: 'Account',
+      component: () => import(/* webpackChunkName: "account" */ '../views/Account.vue')
     }
   ]
 })
