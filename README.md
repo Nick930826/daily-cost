@@ -34,21 +34,35 @@
 ## 项目文字教程
 #### 基础部分：Vue 3.x 基础知识
 [Vue 3.x 简介及开发环境搭建](https://www.lanqiao.cn/courses/3097)
+
 [Vue 3.x 新特性之 setup](https://www.lanqiao.cn/courses/3097)
+
 [Vue 3.x 之响应式系统 API](https://www.lanqiao.cn/courses/3097)
+
 [Vue 3.x 之生命周期钩子函数、提供注入](https://www.lanqiao.cn/courses/3097)
+
 [Vue 3.x 性能提升](https://www.lanqiao.cn/courses/3097)
+
 [Vue 3.x 在业务逻辑层面的提升](https://www.lanqiao.cn/courses/3097)
+
 [路由管理插件 Vue-Router4.x API](https://www.lanqiao.cn/courses/3097)
+
 [状态管理插件 Vuex4.x API](https://www.lanqiao.cn/courses/3097)
 #### 实战部分：高仿微信记账本实战
 [Vue3.x + Vant3.x 搭建开发环境](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之导航栏](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之登录注册页面](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之首页](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之添加账单弹窗](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之账单详情](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之数据统计](https://www.lanqiao.cn/courses/3097)
+
 [记账本实战之我的页面](https://www.lanqiao.cn/courses/3097)
 
 
