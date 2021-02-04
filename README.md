@@ -2,7 +2,7 @@
 
 本项目为高仿微信记账本 H5 项目（微信记账本是小程序），项目页面不多，但是涵盖了很多数据操作知识。
 
-![](https://doc.shiyanlou.com/courses/3097/207437/0d70cf081c63e5b66a57059314f90803-0)
+![](./assets/daily-cost.png)
 
 ![](https://doc.shiyanlou.com/courses/3097/207437/d6b41cebc27e8edd8ad31d224a0c1ba3-0/wm)
 
